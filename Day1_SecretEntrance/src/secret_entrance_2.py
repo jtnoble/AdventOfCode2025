@@ -13,26 +13,39 @@ class Dial:
 
     def rotate_left(self, amount: int) -> int:
         """Decrement the current value of the dial by a specifed amount, handling going under bounds"""
-        self.current_num = (self.current_num - amount) % 100
-        return self.current_num
+        start = self.current_num
+        if start != self.lower_bound:
+            first = start
+        else:
+            first = self.upper_bound + 1
+        zeros = 0
+        if amount >= first:
+            zeros = 1 + (amount - first) // (self.upper_bound + 1)
+        self.current_num = (self.current_num - amount) % (self.upper_bound + 1)
+        return zeros
     
     def rotate_right(self, amount: int) -> int:
         """Increment the current value of the dial by a specifed amount, handling going over bounds"""
-        self.current_num = (self.current_num + amount) % 100
-        return self.current_num
+        start = self.current_num
+        first = (self.upper_bound + 1 - start) % (self.upper_bound + 1)
+        if first == self.lower_bound:
+            first = self.upper_bound + 1
+        zeros = 0
+        if amount >= first:
+            zeros = 1 + (amount - first) // (self.upper_bound + 1)
+        self.current_num = (self.current_num + amount) % (self.upper_bound + 1)
+        return zeros
 
-def turn_dial(dial: Dial, user_input: str) -> bool:
+def turn_dial(dial: Dial, user_input: str) -> int:
     """Take in an input and turn dial accordling, return true if passing 0"""
     direction = user_input[0]
     amount = int(user_input[1:])
 
     match direction:
         case "L":
-            new_value = dial.rotate_left(amount)
+            return dial.rotate_left(amount)
         case "R":
-            new_value = dial.rotate_right(amount)
-
-    return new_value == 0
+            return dial.rotate_right(amount)
         
 if __name__ == '__main__':
     dial = Dial()
@@ -43,8 +56,7 @@ if __name__ == '__main__':
     with open(filepath, 'r') as f:
         for line in f.readlines():
             line = line.strip('\n')
-            if turn_dial(dial, line):
-                count += 1
+            count += turn_dial(dial, line)
 
     print(f'The password for part 1 of the puzzle is: {count}')
 

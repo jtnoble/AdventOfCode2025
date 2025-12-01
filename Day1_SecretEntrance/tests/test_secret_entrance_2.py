@@ -1,4 +1,4 @@
-from src.secret_entrance import Dial, turn_dial
+from src.secret_entrance_2 import Dial, turn_dial
 
 import pytest
 
@@ -63,12 +63,9 @@ def test_turn_dial_output_values(dial: Dial) -> None:
     turn_dial(dial=dial, user_input="L40")
     assert dial.current_num == 40
 
-def test_turn_dial_returns_true(dial: Dial) -> None:
-    """Check that when turning the dial to 0, it returns true"""
-    result = turn_dial(dial=dial, user_input="L50")
-    assert result
-
-def test_turn_dial_returns_false(dial: Dial) -> None:
-    """Check that when turning the dial to 0, it returns false"""
-    result = turn_dial(dial=dial, user_input="L51")
-    assert not result
+def test_turn_dial_returns_total_turns(dial: Dial) -> None:
+    """Check total turns returned by turn_dial function"""
+    output = turn_dial(dial=dial, user_input="R300")
+    assert output == 3
+    output = turn_dial(dial=dial, user_input="L550")
+    assert output == 6
