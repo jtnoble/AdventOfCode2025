@@ -17,6 +17,13 @@ Each subdirectory will have a solution. Included is also a {DAY_TITLE}.md that i
 - Run tests in command line with `pytest`
 - Run the solution by running the main file `python3 src/<main_filename>.py`
 
+### Running C#
+- Ensure .NET 8.0.x is installed: `dotnet --version`
+- Restore dependencies: `dotnet restore`
+- Run tests: `dotnet test`
+- Run main code: `dotnet run`
+  - *Note: Tests can be run from the project root, running main needs to be done in the `Day3_Lobby` directory
+
 
 ### More Information
 https://adventofcode.com/2025
