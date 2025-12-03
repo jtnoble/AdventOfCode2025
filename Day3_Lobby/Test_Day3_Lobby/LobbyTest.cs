@@ -11,15 +11,28 @@ public class LobbyTest
         Assert.Equal(98, pair);
 
         pair = Lobby.GetHighestNumberPair("258912090");
-        Assert.Equal(99, pair);
+        Assert.Equal(99, pair); 
+    }
 
-        pair = Lobby.GetHighestNumberPair("8685147529");
+    [Fact]
+    public void GetHighestNumberPairLargestNumberAtEnd()
+    {
+        int pair = Lobby.GetHighestNumberPair("8685147529");
         Assert.Equal(89, pair);
+    }
 
-        pair = Lobby.GetHighestNumberPair("74444444");
+    [Fact]
+    public void GetHighestNumberPairLargestNumberAtStart()
+    {
+        int pair = Lobby.GetHighestNumberPair("74444444");
         Assert.Equal(74, pair);
+    }
 
-        pair = Lobby.GetHighestNumberPair("1111111111");
+    [Fact]
+    public void GetHighestNumberPairAllNumbersEqual()
+    {
+        int pair = Lobby.GetHighestNumberPair("1111111111");
         Assert.Equal(11, pair);
     }
+
 }

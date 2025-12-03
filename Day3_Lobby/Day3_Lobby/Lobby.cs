@@ -1,40 +1,62 @@
 ﻿namespace Day3_Lobby;
+using System.IO;
 
 public class Lobby
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Hello, world!");
+        string filepath = "input.txt"; // Be sure this file has "Copy to Output Directory" set to "Copy Always"
+        string[] textfile = ReadInputFile(filepath);
+
+        List<int> numPairs = [];
+
+        int sum = 0;
+        int count = 0;
+
+        foreach (string line in textfile)
+        {
+            int numPair = GetHighestNumberPair(line);
+            numPairs.Add(numPair);
+            sum += numPair;
+            count++;
+            Console.WriteLine($"{count}: {numPair}");
+        }
+        Console.WriteLine($"The password is: {sum}");
     }
 
     public static int GetHighestNumberPair(string line)
     {
-        char left = '0';
-        char right = '0';
+        int maxLeft = -1;
+        int maxPair = -1;
 
-        char[] lineArr = line.ToCharArray();
-        int len = lineArr.Length;
-        int i = 0;
-
-        foreach (char c in lineArr)
+        foreach (char c in line)
         {
-            if (c > left && i != len - 1)
+            int digit = c - '0';
+
+            if (maxLeft != -1)
             {
-                left = c;
-            }
-            else if (c > right)
-            {
-                right = c;
+                int newValue = maxLeft * 10 + digit;
+                if (newValue > maxPair)
+                    maxPair = newValue;
             }
 
-            ++i;
+            if (digit > maxLeft)
+                maxLeft = digit;
         }
-        
-        
-        int l = (int)Char.GetNumericValue(left);
-        int r = (int)Char.GetNumericValue(right);
-        int result = l * 10 + r;
+        return maxPair;
+    }
 
-        return result;
+    public static string[]? ReadInputFile(string filepath)
+    {
+        try
+        {
+            string[] lines = File.ReadAllLines(filepath);
+            return lines;
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine(e.ToString());
+            return null;
+        }
     }
 }
