@@ -1,6 +1,29 @@
 # Day 2: Gift Shop
 
+## Personal Log About My Solution
+I feel like my solution was a little complicated; however, it was still solid. Not the best solution, but still pretty quick.
+
+Part 2 though... This was extremely slow. On my computer it took nearly 20 seconds to run when getting the answer the first time (Ryzen 5600X).
+
+My original implementation had a ton of repeats. For example, the number 755752303 breaks into the following:
+['7557', '5230', '3'],
+['755', '752', '303'],
+['75', '57', '52', '30', '3'],
+['75', '57', '52', '30', '3'],
+['75', '57', '52', '30', '3'],
+['7', '5', '5', '7', '5', '2', '3', '0', '3'],
+['7', '5', '5', '7', '5', '2', '3', '0', '3'],
+['7', '5', '5', '7', '5', '2', '3', '0', '3']
+
+If you notice... There are a lot of repeats here. This was because the `split_number` rounds the value, causing repeat splits.
+
+For example: `len("755752303") / 4 = 2.25`, `len("755752303") / 5 = 1.8`, `len("755752303") / 6 = 1.5`. All of these round to 2, meaning we're just going to repeat grabbing two numbers at a time 3 times in a row. My solution was to just check if `split_number` received an input that would split unevenly, causing a value to not match the same length as the rest, and just skip it if this were true.
+
+Now we're down to about 9 seconds. Again, I feel like (without multiprocessing) this could be significantly faster, but maybe I'll revisit another day.
+
 ## Problem Statement:
+
+### Part 1:
 You get inside and take the elevator to its only other stop: the gift shop. "Thank you for visiting the North Pole!" gleefully exclaims a nearby sign. You aren't sure who is even allowed to visit the North Pole, but you know you can access the lobby through here, and from there you can access the rest of the North Pole base.
 
 As you make your way through the surprisingly extensive selection, one of the clerks recognizes you and asks for your help.
@@ -34,3 +57,26 @@ The rest of the ranges contain no invalid IDs.
 Adding up all the invalid IDs in this example produces 1227775554.
 
 What do you get if you add up all of the invalid IDs?
+
+### Part 2:
+The clerk quickly discovers that there are still invalid IDs in the ranges in your list. Maybe the young Elf was doing other silly patterns as well?
+
+Now, an ID is invalid if it is made only of some sequence of digits repeated at least twice. So, 12341234 (1234 two times), 123123123 (123 three times), 1212121212 (12 five times), and 1111111 (1 seven times) are all invalid IDs.
+
+From the same example as before:
+
+    11-22 still has two invalid IDs, 11 and 22.
+    95-115 now has two invalid IDs, 99 and 111.
+    998-1012 now has two invalid IDs, 999 and 1010.
+    1188511880-1188511890 still has one invalid ID, 1188511885.
+    222220-222224 still has one invalid ID, 222222.
+    1698522-1698528 still contains no invalid IDs.
+    446443-446449 still has one invalid ID, 446446.
+    38593856-38593862 still has one invalid ID, 38593859.
+    565653-565659 now has one invalid ID, 565656.
+    824824821-824824827 now has one invalid ID, 824824824.
+    2121212118-2121212124 now has one invalid ID, 2121212121.
+
+Adding up all the invalid IDs in this example produces 4174379265.
+
+What do you get if you add up all of the invalid IDs using these new rules?

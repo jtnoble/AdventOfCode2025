@@ -11,7 +11,9 @@ Each subdirectory will have a solution. Included is also a {DAY_TITLE}.md that i
 - Change into the respective day's subdirectory
 - Create a virtual environment: `python3 -m venv .venv`
   - Activate the environment Linux: `source .venv/bin/activate` | Windows: `.\.venv\Scripts\activate `
-- Install dependencies: `pip install -r requirements.txt`
+- Install dependencies: 
+  - If there is any other dependencies than `pytest`, then there will be a `requirements.txt` file. Run: `pip install -r requirements.txt`
+  - If there is no `requirements.txt` file, then you can assume `pytest` is the only dependency. Run: `pip install pytest==9.0.1`
 - Run tests in command line with `pytest`
 - Run the solution by running the main file `python3 src/<main_filename>.py`
 
