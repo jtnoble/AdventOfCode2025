@@ -4,7 +4,7 @@ Each day is a different problem, and solving that problem leads to a solution to
 This year, I am trying to focus on Test-Driven Development principles.
 
 ### Subdirectories
-Each subdirectory will have a solution. Included is also a {DAY_TITLE}.md that is simply the problem for the day. Most every directory should run similarly, though, there might be a mixed batch of code (Python, C#, maybe something else?)
+Each subdirectory will have a solution. Included is also a {DAY_TITLE}.md that has some of my thoughts, along with a link to the problem for the day. Most every directory should run similarly, though, there might be a mixed batch of code (Python, C#, maybe something else?). To note as well, I will have provided a truncated version of my sample input to show you what the input *might* look like, but not exactly to avoid any spoiling.
 
 ### Running Python
 - Ensure Python3.12 is installed
