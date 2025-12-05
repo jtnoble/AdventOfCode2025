@@ -58,6 +58,6 @@ if __name__ == '__main__':
             line = line.strip('\n')
             count += turn_dial(dial, line)
 
-    print(f'The password for part 1 of the puzzle is: {count}')
+    print(f'The password for part 2 of the puzzle is: {count}')
 
     
