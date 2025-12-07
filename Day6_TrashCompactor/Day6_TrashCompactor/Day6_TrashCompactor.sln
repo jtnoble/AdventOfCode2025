@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day6_TrashCompactor", "Day6_TrashCompactor.csproj", "{FF63395F-CBC0-4A35-8384-B2932F4589AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Day6_TrashCompactor", "..\Test_Day6_TrashCompactor\Test_Day6_TrashCompactor.csproj", "{07FDC4C0-CA7D-4AA5-9EB9-A302600CA0DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF63395F-CBC0-4A35-8384-B2932F4589AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF63395F-CBC0-4A35-8384-B2932F4589AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF63395F-CBC0-4A35-8384-B2932F4589AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF63395F-CBC0-4A35-8384-B2932F4589AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07FDC4C0-CA7D-4AA5-9EB9-A302600CA0DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07FDC4C0-CA7D-4AA5-9EB9-A302600CA0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07FDC4C0-CA7D-4AA5-9EB9-A302600CA0DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07FDC4C0-CA7D-4AA5-9EB9-A302600CA0DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {981E6042-ABD0-4353-B2A2-AE9831D56979}
+	EndGlobalSection
+EndGlobal
